@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "verif-ai backend"
+version = "0.1.0"
+description = "Backend REST API for Verif.AI"
+authors = ["ctagard <ctagard19@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "verif"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+djangorestframework = "^3.14.0"
+django-environ = "^0.11.2"
+django = "3.2"
+drf-yasg = "^1.21.7"
+psycopg2 = "^2.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
