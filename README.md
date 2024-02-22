@@ -55,7 +55,7 @@ This command installs all dependencies defined in pyproject.toml.
 
 To run the Django development server using Poetry, ensure you are in the directory containing manage.py:
 ```bash
-poetry run python manage.py runserver
+poetry run python verifai/manage.py runserver
 ```
 This starts the Django development server, making the application accessible at http://localhost:8000/.
 
