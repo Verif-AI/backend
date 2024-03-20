@@ -1,1 +1,1 @@
-web: cd verifai & celery -A verifai worker --loglevel=info & python manage.py migrate && gunicorn verifai.wsgi  --bind 0.0.0.0:$PORT
+web: sh -c 'cd verifai' & celery -A verifai worker --loglevel=info & python manage.py migrate && gunicorn verifai.wsgi  --bind 0.0.0.0:$PORT
