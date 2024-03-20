@@ -140,3 +140,5 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+CELERY_BROKER_URL = env.get_value('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = env.get_value('CELERY_RESULT_BACKEND')

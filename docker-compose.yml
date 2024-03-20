@@ -45,9 +45,34 @@ services:
     networks:
       - ollama-docker
 
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - tasks
+
+  celery-worker:
+    build:
+      context: ./
+      dockerfile: ./Docker/celery/Dockerfile
+    entrypoint: ["/bin/sh", "/code/Docker/celery/worker-entrypoint.sh"]
+    volumes:
+      - .:/code
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - C_FORCE_ROOT=true
+    restart: always
+    networks:
+      - tasks
 
 volumes:
   postgres_data: { }
 
 networks:
   ollama-docker:
+  tasks:
