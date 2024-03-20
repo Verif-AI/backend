@@ -16,7 +16,7 @@ import os
 
 env = environ.Env(
     DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
+    ALLOWED_HOSTS=(list, ['*']),
 )
 environ.Env.read_env()
 
