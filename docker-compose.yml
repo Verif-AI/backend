@@ -57,7 +57,7 @@ services:
   celery-worker:
     build:
       context: ./
-      dockerfile: ./Docker/celery/Dockerfile
+      dockerfile: ./Docker/celery/Dockerfile-celery
     entrypoint: ["/bin/sh", "/code/Docker/celery/worker-entrypoint.sh"]
     volumes:
       - .:/code
