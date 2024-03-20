@@ -23,6 +23,8 @@ environ.Env.read_env()
 root = environ.Path(__file__) - 3
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = root()
+for key, value in os.environ.items():
+    print(f"{key}: {value}")
 
 
 # Quick-start development settings - unsuitable for production
