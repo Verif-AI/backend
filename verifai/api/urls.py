@@ -22,4 +22,5 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('swagger.<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('verify/', views.verify_fact, name='verify_fact'),
+    path('get_task_status/<str:task_id>/', views.get_task_status, name='get_task_status')
 ]
