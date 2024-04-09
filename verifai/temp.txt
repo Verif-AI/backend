@@ -1,0 +1,1 @@
+[{'title': 'MANIAC and Los Alamos Chess | Discover Los Alamos National ...', 'link': 'https://discover.lanl.gov/publications/at-the-bradbury/2023-aug/maniac-chess/', 'snippet': 'Aug 1, 2023 ... Los Alamos Chess is played on a 6x6 board. Bishops are removed (the game is also called anti-clerical chess). No pawn double-step moves are\xa0...'}]

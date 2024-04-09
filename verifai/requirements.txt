@@ -4,6 +4,13 @@ drf-yasg
 requests
 django
 celery
-psycopg2-binary
-redis
+wheel
+psycopg2
+redis==4.6.0
 gunicorn
+django-cors-headers
+google-api-python-client
+langchain
+langchain-community
+langchain-core
+langgraph

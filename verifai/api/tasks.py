@@ -8,8 +8,9 @@ import time
 @shared_task(bind=True)
 def process_fact(self, fact_id):
     try:
-        time.sleep(5)
+        print("Processing fact:")
         fact = Fact.objects.get(id=fact_id)
+        print("Processing fact: ", fact.claim)
 
         if settings.ENV_LOCATION == "local":
             llm_response = run_claim_judge_pipeline(
@@ -23,7 +24,8 @@ def process_fact(self, fact_id):
 
         # Update the fact instance with the LLM response data
         # Fact.objects.filter(id=fact.id).update(**llm_response)
-        return llm_response
+        print(llm_response)
+        return llm_response.get('final_output')
     except Exception as e:
         self.update_state(state='FAILURE', meta={'exc': str(e)})
         raise e

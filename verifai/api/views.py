@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Fact
-from .serializers import FactSerializer
+from .serializers import FactSerializer, ResultSerializer
 from django.conf import settings
 from django.http import JsonResponse
 from celery.result import AsyncResult
@@ -26,7 +26,10 @@ def get_task_status(request, task_id):
     task = AsyncResult(task_id)
     if task.state == 'SUCCESS':
         print(task.state)
-        return Response({'status': 'SUCCESS', 'result': task.result}, status=status.HTTP_200_OK)
+
+        results = ResultSerializer(task.result, many=True).data
+        print(results)
+        return Response({'status': 'SUCCESS', 'result': results}, status=status.HTTP_200_OK)
     elif task.state == 'FAILURE':
         print(task.state)
         return Response({'status': 'FAILURE', 'error': "PROBLEM"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
