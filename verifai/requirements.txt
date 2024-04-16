@@ -1,0 +1,17 @@
+djangorestframework
+django-environ
+drf-yasg
+requests
+django
+celery
+wheel
+psycopg2
+redis==4.6.0
+gunicorn
+django-cors-headers
+google-api-python-client
+langchain
+langchain-community
+langchain-core
+langgraph
+huggingface-hub

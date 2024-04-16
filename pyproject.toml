@@ -11,10 +11,21 @@ packages = [{include = "verif"}]
 python = "^3.10"
 djangorestframework = "^3.14.0"
 django-environ = "^0.11.2"
-django = "3.2"
 drf-yasg = "^1.21.7"
-psycopg2 = "^2.9.9"
 requests = "^2.31.0"
+django = "^5.0.2"
+celery = "^5.3.6"
+redis = "<5.0.0"
+gunicorn = "^21.2.0"
+django-cors-headers = "^4.3.1"
+langchain = "^0.1.14"
+langchain-community = "^0.0.31"
+langchain-core = "^0.1.38"
+langgraph = "^0.0.30"
+pandas = "^2.2.1"
+wheel = "^0.43.0"
+psycopg2 = "^2.9.9"
+google-api-python-client = "^2.124.0"
 
 
 [build-system]
