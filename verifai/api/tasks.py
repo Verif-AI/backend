@@ -12,15 +12,9 @@ def process_fact(self, fact_id):
         fact = Fact.objects.get(id=fact_id)
         print("Processing fact: ", fact.claim)
 
-        if settings.ENV_LOCATION == "local":
-            llm_response = run_claim_judge_pipeline(
+        llm_response = run_claim_judge_pipeline(
                 fact.claim,
             )
-
-        else:
-            llm_service_url = f"{settings.LLM_ENDPOINT}/api/generate"
-            response = requests.post(llm_service_url, json={'model': 'llama2', 'prompt': fact.claim, 'stream': False})
-            llm_response = response.json()
 
         # Update the fact instance with the LLM response data
         # Fact.objects.filter(id=fact.id).update(**llm_response)

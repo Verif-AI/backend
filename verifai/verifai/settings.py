@@ -125,3 +125,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CELERY_BROKER_URL = env.get_value('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = env.get_value('CELERY_RESULT_BACKEND')
 GOOGLE_SEARCH_API_KEY = env.get_value('GOOGLE_SEARCH_API_KEY')
+LLM_API_KEY = env.get_value('LLM_API_KEY')
