@@ -10,7 +10,6 @@ import os
 
 env = environ.Env(
     DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, ['*']),
 )
 environ.Env.read_env()
 
@@ -102,6 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://backend-production-3246.up.railway.app',
+    'localhost',
+    '127.0.0.1'
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -117,8 +122,6 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-print(STATIC_ROOT)
-
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
