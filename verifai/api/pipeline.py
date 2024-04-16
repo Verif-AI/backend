@@ -3,6 +3,7 @@ from langgraph.graph import StateGraph, END
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser, StrOutputParser, CommaSeparatedListOutputParser
 from langchain_community.llms import Ollama
+from langchain_community.llms import HuggingFaceEndpoint
 from typing import TypedDict
 from langchain.tools import Tool
 from langchain_community.utilities import GoogleSearchAPIWrapper
@@ -45,7 +46,12 @@ def run_claim_judge_pipeline(text, search_version=0, one_claim=False, llm_to_use
     if llm_to_use == 'llama2':
         llm = Ollama(model="llama2")
     elif llm_to_use == 'mistral':
-        llm = Ollama(model="mistral-openorca")
+        os.environ["HUGGINGFACEHUB_API_TOKEN"] = settings.LLM_API_KEY
+        repo_id = "mistralai/Mistral-7B-Instruct-v0.2"
+
+        llm = HuggingFaceEndpoint(
+            repo_id=repo_id,
+        )
     else:
         raise Exception('Selected LLM not supported')
 
