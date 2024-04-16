@@ -24,7 +24,7 @@ LLM_ENDPOINT = env.get_value('LLM_ENDPOINT')
 ENV_LOCATION = env.get_value('ENV_LOCATION')
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ['*', 'localhost', 'backend-production-3246.up.railway.app']
 
 
 INSTALLED_APPS = [
